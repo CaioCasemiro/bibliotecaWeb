@@ -1,4 +1,4 @@
-package br.com.bibliotecaWeb.models;
+package br.com.bibliotecaWeb.model;
 
 import jakarta.persistence.*;
 
@@ -18,6 +18,10 @@ public class Livro {
 
     @Column(nullable = false)
     private int anoPublicacao;
+
+    private boolean disponivel = true;
+
+    
 
     public Livro() {
     }
@@ -58,6 +62,14 @@ public class Livro {
 
     public void setAnoPublicacao(int anoPublicacao) {
         this.anoPublicacao = anoPublicacao;
+    }
+    
+    public void setDisponivel(boolean disponivel) {
+        this.disponivel = disponivel;
+    }
+
+    public boolean getDisponivel() {
+        return disponivel;
     }
 
     @Override
