@@ -3,6 +3,7 @@ package br.com.bibliotecaWeb.service;
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
@@ -22,6 +23,27 @@ public class EmprestimoService {
         this.emprestimoRepository = emprestimoRepository;
         this.livroRepository = livroRepository;
     }
+
+    public Optional<Emprestimo> buscarPorId(Long idEmprestimo) {
+        return emprestimoRepository.findById(idEmprestimo);
+    }
+
+    public List<Emprestimo> listarTodos() {
+        return emprestimoRepository.findAll();
+    }
+    
+    public Emprestimo salvar(Emprestimo emprestimo) {
+        return emprestimoRepository.save(emprestimo);
+    }
+    
+    public boolean deletar(Long idEmprestimo) {
+        if (emprestimoRepository.existsById(idEmprestimo)) {
+            emprestimoRepository.deleteById(idEmprestimo);
+            return true;
+        }
+        return false;
+    }
+    
 
     public Emprestimo realizaEmprestimo(Usuario usuario, Livro livro, LocalDate dataDevolucaoPrevista){
         if(!livro.getDisponivel()){

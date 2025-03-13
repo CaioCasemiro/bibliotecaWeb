@@ -17,8 +17,16 @@ public class LivroService {
         this.livroRepository = livroRepository;
     }
 
-    //Listar todos os livros
+    public Livro atualizarLivro(Long id, Livro livroAtualizado) {
+        Livro livro = livroRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Livro não encontrado"));
+        
+        livro.setTitulo(livroAtualizado.getTitulo("someStringArgument"));
+        livro.setDisponivel(livroAtualizado.getDisponivel());
+        return livroRepository.save(livro);
+    }
 
+    //Listar todos os livros
     public List<Livro> listarTodos(){
         return livroRepository.findAll();
     }

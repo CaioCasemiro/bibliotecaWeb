@@ -17,6 +17,14 @@ public class UsuarioService {
         this.usuarioRepository = usuarioRepository;
     }
 
+    public Usuario atualizarUsuario(Long id, Usuario usuarioAtualizado) {
+        Usuario usuario = usuarioRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Usuário não encontrado"));
+        
+        usuario.setNome(usuarioAtualizado.getNome());
+        return usuarioRepository.save(usuario);
+    }
+
     //Listar todos os usuários 
     public List<Usuario> listarUsuarios(){
         return usuarioRepository.findAll();
@@ -40,6 +48,10 @@ public class UsuarioService {
     //Buscar um usuário pelo ID
     public Optional<Usuario> buscarPorId(Long id){
         return usuarioRepository.findById(id);
+    }
+
+    public void deletarUsuario(Long id) {
+        usuarioRepository.deleteById(id);
     }
     
     

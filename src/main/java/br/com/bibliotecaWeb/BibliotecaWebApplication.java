@@ -7,7 +7,7 @@ import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
 @ComponentScan(basePackages = "br.com.bibliotecaWeb")
-@EntityScan(basePackages = {"br.com.bibliotecaWeb.model", "br.com.bibliotecaWeb.repository", "br.com.bibliotecaWeb.service"})
+@EntityScan(basePackages = {"br.com.bibliotecaWeb.model", "br.com.bibliotecaWeb.repository", "br.com.bibliotecaWeb.service", "br.com.bibliotecaWeb.controller"})
 
 public class BibliotecaWebApplication {
 
