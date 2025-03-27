@@ -1,5 +1,7 @@
 # Sistema de Biblioteca Web
 
+Projeto desenvolvido por **Caio Casemiro e Kaio Mourato**
+
 ## Índice
 - [Introdução](#introdução)
 - [Funcionalidades](#funcionalidades)
