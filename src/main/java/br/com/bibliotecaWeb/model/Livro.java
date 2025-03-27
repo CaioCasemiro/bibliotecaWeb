@@ -40,8 +40,8 @@ public class Livro {
         this.id = id;
     }
 
-    public String getTitulo(String string) {
-        return titulo;
+    public String getTitulo() {
+        return this.titulo;
     }
 
     public void setTitulo(String titulo) {

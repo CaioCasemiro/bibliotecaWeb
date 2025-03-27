@@ -21,7 +21,7 @@ public class LivroService {
         Livro livro = livroRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Livro não encontrado"));
         
-        livro.setTitulo(livroAtualizado.getTitulo("someStringArgument"));
+        livro.setTitulo(livroAtualizado.getTitulo());
         livro.setDisponivel(livroAtualizado.getDisponivel());
         return livroRepository.save(livro);
     }
